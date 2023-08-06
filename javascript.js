@@ -11,6 +11,9 @@ function createSquares(containerElement, numberOfDivs){
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
         containerElement.appendChild(squareDiv)
+        squareDiv.addEventListener("mouseover", function (e){
+            e.target.style.background = "black";
+        });
     }
 }
 
