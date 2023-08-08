@@ -7,6 +7,11 @@ const gridContainer = document.getElementById("gridContainer");
 const sideDivs = 16;
 
 function createGrid(containerElement, sideDivs){
+
+    while(sideDivs < 1  || sideDivs > 100){
+        sideDivs = prompt("Please enter a number between 1 and 100");
+    }
+    
     for(let i = 0; i < Math.pow(sideDivs, 2); i++){
         const gridSquare = document.createElement("div");
         gridSquare.classList.add("gridSquare");
@@ -15,6 +20,7 @@ function createGrid(containerElement, sideDivs){
             e.target.style.background = "black";
         });
     }
+    
 
     let numberRows = sideDivs;
     let numberColumns = sideDivs;
@@ -43,15 +49,17 @@ newGridButton.textContent = "Try a different dimension!";
 newGridContainer.appendChild(newGridButton);
 
 function promptInput(){
-    prompt("How many squares per side would you like?")
+    let userSides = prompt("How many squares per side would you like? (1-100)");
+    return userSides;
 }
 
 function deleteGrid(){
     document.querySelectorAll(".gridSquare").forEach(e => e.remove());
-    
 }
 
 newGridButton.addEventListener("click", function(){
-    
+    deleteGrid();
+    let userSides = promptInput();
+    createGrid(gridContainer, userSides);
 });
 
