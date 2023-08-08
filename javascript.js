@@ -8,7 +8,7 @@ const sideDivs = 16;
 
 function createGrid(containerElement, sideDivs){
 
-    while(isNaN(sideDivs) || sideDivs < 1  || sideDivs > 100){
+    while(sideDivs % 1 != 0 || isNaN(sideDivs) || sideDivs < 1  || sideDivs > 100){
         sideDivs = prompt("Please enter a number between 1 and 100");
     }
     
