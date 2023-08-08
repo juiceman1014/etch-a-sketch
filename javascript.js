@@ -4,10 +4,10 @@
 
 //Step 1: Make a container and fill it with 16 square divs
 const gridContainer = document.getElementById("gridContainer");
-const numberOfDivs = 256;
+const sideDivs = 16;
 
-function createGrid(containerElement, numberOfDivs){
-    for(let i = 0; i < numberOfDivs; i++){
+function createGrid(containerElement, sideDivs){
+    for(let i = 0; i < Math.pow(sideDivs, 2); i++){
         const gridSquare = document.createElement("div");
         gridSquare.classList.add("gridSquare");
         containerElement.appendChild(gridSquare)
@@ -16,16 +16,16 @@ function createGrid(containerElement, numberOfDivs){
         });
     }
 
-    let numberRows = Math.sqrt(numberOfDivs)
-    let numberColumns = Math.sqrt(numberOfDivs)
+    let numberRows = sideDivs;
+    let numberColumns = sideDivs;
 
-    gridContainer.style.gridTemplateRows = `repeat(${numberRows}, 1fr`
-    gridContainer.style.gridTemplateColumns = `repeat(${numberColumns}, 1fr`
+    gridContainer.style.gridTemplateRows = `repeat(${numberRows}, 1fr`;
+    gridContainer.style.gridTemplateColumns = `repeat(${numberColumns}, 1fr`;
 
 
 }
 
-createGrid(gridContainer, numberOfDivs);
+createGrid(gridContainer, sideDivs);
 
 //Step 2: add a button to the top of the screen that will send the user a popup
 //asking for then number of squares per side for the new grid. Once entered
@@ -35,17 +35,23 @@ createGrid(gridContainer, numberOfDivs);
 //in more computer resources being used, potentially causing delays, freezing, 
 //crashing that we want to prevent
 
-// const newGridContainer = document.querySelector(".newGridContainer");
+const newGridContainer = document.querySelector(".newGridContainer");
 
-// const newGridButton = document.createElement("button");
-// newGridButton.classList.add("newGridButton");
-// newGridButton.textContent = "Try a different dimension!";
-// newGridContainer.appendChild(newGridButton);
+const newGridButton = document.createElement("button");
+newGridButton.classList.add("newGridButton");
+newGridButton.textContent = "Try a different dimension!";
+newGridContainer.appendChild(newGridButton);
 
-// function promptInput(){
-//     prompt("How many squares per side would you like?")
-// }
+function promptInput(){
+    prompt("How many squares per side would you like?")
+}
 
-// newGridButton.addEventListener("click", function(){
-//     promptInput();
-// });
+function deleteGrid(){
+    document.querySelectorAll(".gridSquare").forEach(e => e.remove());
+    
+}
+
+newGridButton.addEventListener("click", function(){
+    
+});
+
