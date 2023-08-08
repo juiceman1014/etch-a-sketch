@@ -1,25 +1,23 @@
 body, html{
-    height: 100%;
-    margin: 0px;
+    
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.gridContainer{
+    width: 800px;
+    height: 800px;
+    display: grid;
+    border-style: solid;
+    border-color: black;
+    /* grid-gap: 20px; */
     justify-content: center;
+    
+   
 }
 
-.container{
-    width: 450px;
-    height: 400px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.square{
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
+.gridSquare{
+    border-style: solid;
+    border-color: green;
+    justify-content: center;
+    
     
 }
